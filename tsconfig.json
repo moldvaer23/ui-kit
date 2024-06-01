@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"outDir": "./build/types", // Указываем каталог для выходных файлов типов
+		"declaration": true, // Генерировать файлы типов
+		"declarationDir": "./build/types", // Указываем каталог для деклараций
+		"target": "ES5",
+		"module": "es6",
+		"jsx": "react",
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"plugins": [{ "name": "typescript-plugin-css-modules" }]
+	},
+	"include": ["src"]
+}
