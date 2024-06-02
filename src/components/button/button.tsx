@@ -1,10 +1,10 @@
 import React, { ButtonHTMLAttributes, FC, ReactNode, memo } from 'react'
 import clsx from 'clsx'
 
-import './styles.scss'
+import './_styles.scss'
 
 type TButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-	variant: 'outlined'
+	variant: 'outlined' | 'contained' | 'text'
 	children: ReactNode
 	isLoading?: boolean
 	loadingData?: string | ReactNode
@@ -17,11 +17,14 @@ export const Button: FC<TButtonProps> = memo(
 		isLoading,
 		loadingData = 'Загрузка...',
 		type = 'button',
+		className,
 		...args
 	}) => {
 		return (
 			<button
-				className={clsx('button', `button__${variant}`)}
+				className={clsx('button', `button__${variant}`, {
+					[className as string]: className !== undefined,
+				})}
 				disabled={isLoading}
 				type={type}
 				{...args}

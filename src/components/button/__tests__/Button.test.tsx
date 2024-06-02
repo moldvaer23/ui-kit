@@ -42,14 +42,24 @@ describe('[Component]: Button', () => {
 		expect(container.querySelector('button')).toHaveAttribute('disabled')
 	})
 
-	it('[test]: имеет правильный атрибут disabled и текст при загрузке', () => {
+	it('[test]: имеет правильный атрибут disabled и текст при загрузке если не передали "loadingData"', () => {
 		const { container, getByText } = render(
-			<Button variant='outlined' isLoading={true} loadingData='ТЕСТ'>
+			<Button variant='outlined' isLoading={true}>
 				ТЕСТ
 			</Button>
 		)
 		expect(container.querySelector('button')).toHaveAttribute('disabled')
-		expect(getByText('ТЕСТ')).toBeInTheDocument()
+		expect(getByText('Загрузка...')).toBeInTheDocument()
+	})
+
+	it('[test]: имеет правильный атрибут disabled и текст при загрузке', () => {
+		const { container, getByText } = render(
+			<Button variant='outlined' isLoading={true} loadingData='ЗАГРУЗКА'>
+				ТЕСТ
+			</Button>
+		)
+		expect(container.querySelector('button')).toHaveAttribute('disabled')
+		expect(getByText('ЗАГРУЗКА')).toBeInTheDocument()
 	})
 
 	it('[test]: имеет правильный атрибут disabled и картинку при загрузке', () => {
@@ -72,7 +82,7 @@ describe('[Component]: Button', () => {
 		)
 		expect(container.querySelector('button')).toHaveAttribute(
 			'class',
-			'"button button__outlined TEST"'
+			'button button__outlined TEST'
 		)
 	})
 })
