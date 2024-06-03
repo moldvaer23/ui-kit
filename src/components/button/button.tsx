@@ -1,10 +1,10 @@
-import React, { ButtonHTMLAttributes, FC, ReactNode, memo } from 'react'
+import React, { ButtonHTMLAttributes, FC, memo, ReactNode } from 'react'
 import clsx from 'clsx'
-
+import { TVariantButton } from '../../types/global'
 import './_styles.scss'
 
 type TButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-	variant: 'outlined' | 'contained' | 'text'
+	variant: TVariantButton
 	children: ReactNode
 	isLoading?: boolean
 	loadingData?: string | ReactNode

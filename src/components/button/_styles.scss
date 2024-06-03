@@ -1,4 +1,4 @@
-@import '../../variables';
+@import '../../assets/variables';
 
 .button {
 	display: inline-flex;
@@ -15,6 +15,9 @@
 		box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
 		border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
 		color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+	cursor: pointer;
+	border: 0;
+	outline: 0;
 
 	&__outlined {
 		padding: 5px 15px;
@@ -68,4 +71,5 @@
 
 .button:disabled {
 	color: $disabled-text-color;
+	pointer-events: none;
 }
